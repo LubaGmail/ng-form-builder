@@ -1,0 +1,34 @@
+<form>
+  <div class='form-group'>
+    <label for='name'>Name:</label>
+    <input (keyup.enter)='handleChange(name)'
+      id='name' name='name' class='form-control' 
+      #name>
+  </div>
+
+  <div class='form-group'>
+    <label for='email'>Email</label>
+    <input (keyup.enter)='handleChange(email)'
+      id='email' name='email'
+      class='form-control'
+      #email>
+
+    <label for='phone'>Phone</label>
+    <input (keyup.enter)='handleChange(phone)'
+      id='phone' name='phone'
+      class='form-control'
+      #phone>
+  </div>
+
+  <div class='form-group'>
+    <label for='topic'>Topic:</label>
+    <input name='topic' id='topic' class='form-control' (keyup.enter)='addTopic(topic)' #topic>
+
+    <ul class="list-group">
+      <li *ngFor='let topic of topics.controls' (click)=removeTopic(topic) class="list-group-item">
+        {{topic.value}}
+      </li>
+    </ul>
+  </div>
+
+</form>
